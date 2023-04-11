@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON API Example</title>
+	<script>
+		function fetchData() {
+			fetch('https://api.scyted.tv/links/users/@loydosborne/user-info.json')
+				.then(response => response.json())
+				.then(data => {
+					const key = document.getElementById('key').value;
+					const textbox = document.getElementById('textbox');
+					textbox.value = data[key];
+				})
+				.catch(error => console.error(error));
+		}
+	</script>
+</head>
+<body>
+	<h1>JSON API Example</h1>
+	<label for="key">Enter Key:</label>
+	<input type="text" id="key">
+	<button onclick="fetchData()">Fetch Data</button>
+	<br><br>
+	<textarea id="textbox" rows="10" cols="50"></textarea>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON API Example</title>
+	<script>
+		function fetchData() {
+			const url = 'https://api.scyted.tv/links/users/@loydosborne/user-info.json'; // Replace with your API URL
+			fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					const items = data.items; // Replace with the name of the JSON object containing the items you want to display
+					const displayDiv = document.getElementById('display');
+					displayDiv.innerHTML = ''; // Clear the display div
+					for (let i = 0; i < items.length; i++) {
+						const item = items[i];
+						const name = item.name; // Replace with the name of the property you want to display
+						const description = item.description; // Replace with the name of the property you want to display
+						const itemDiv = document.createElement('div');
+						itemDiv.innerHTML = `<h2>${name}</h2><p>${description}</p>`;
+						displayDiv.appendChild(itemDiv);
+					}
+				})
+				.catch(error => console.error(error));
+		}
+	</script>
+</head>
+<body>
+	<h1>JSON API Example</h1>
+	<button onclick="fetchData()">Fetch Data</button>
+	<div id="display"></div>
+</body>
+</html>
