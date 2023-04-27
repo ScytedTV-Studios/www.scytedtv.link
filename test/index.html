@@ -1,15 +1,14 @@
 <html>
+
 <head>
-   <style>
-      iframe[iframetag] {
-         border: none;
-      }
-   </style>
+   <script src="jquery-3.6.4.min.js"></script>
+   <script src="https://api.scyted.tv/jquery/jquery-3.6.4.js"></script>
 </head>
-<body>
-   <div id="iframeDiv">
-      <!-- <iframe src="https://api.scyted.tv/links/page-code/index.html" height="100%" width="100%" iframetag></iframe> -->
-      <iframe src="https://links.scyted.tv/@loydosborne" height="100%" width="100%" style="border:none;" iframetag></iframe>
-   </div>
-</body>
+
+<script type="text/javascript">
+   $(document).ready(function (e) {
+      $('#header').load('result.html', function () { alert('loaded') });
+   });
+</script>
+
 </html>
